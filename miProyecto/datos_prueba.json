@@ -1,0 +1,46 @@
+[
+  {
+    "model": "miApp.usuario",
+    "pk": 1,
+    "fields": {
+      "nombre": "Juan Pérez",
+      "dni": 12345678,
+      "telefono": "123456789",
+      "perfil": "Administrador",
+      "email": "juan@example.com",
+      "fecha_registro": "2024-05-28T10:00:00Z"
+    }
+  },
+  {
+    "model": "miApp.usuario",
+    "pk": 2,
+    "fields": {
+      "nombre": "Ana Gómez",
+      "dni": 87654321,
+      "telefono": "987654321",
+      "perfil": "Editor",
+      "email": "ana@example.com",
+      "fecha_registro": "2024-05-28T11:00:00Z"
+    }
+  },
+  {
+    "model": "miApp.post",
+    "pk": 1,
+    "fields": {
+      "titulo": "Primer post",
+      "contenido": "Este es el contenido del primer post.",
+      "autor": 1,
+      "fecha_publicacion": "2024-05-28T12:00:00Z"
+    }
+  },
+  {
+    "model": "miApp.post",
+    "pk": 2,
+    "fields": {
+      "titulo": "Segundo post",
+      "contenido": "Este es el contenido del segundo post.",
+      "autor": 2,
+      "fecha_publicacion": "2024-05-28T13:00:00Z"
+    }
+  }
+]

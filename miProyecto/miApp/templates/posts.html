@@ -1,0 +1,11 @@
+<h1>Bienvenidos a los Posts</h1>
+<p>Esta es una lista de posts.</p>
+<ul>
+    {% for post in posts %}
+        <li>{{ post.titulo}} - {{ post.contenido }}</li>
+    {% empty %}
+        <li>No hay posts disponibles.</li>
+    {% endfor %}
+
+</ul>
+
