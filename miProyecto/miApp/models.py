@@ -7,6 +7,7 @@ class usuario(models.Model):
     telefono = models.CharField(max_length=15)
     perfil = models.TextField()
     email = models.EmailField()
+  
     fecha_registro = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

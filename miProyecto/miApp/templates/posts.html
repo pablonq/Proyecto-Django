@@ -1,11 +1,15 @@
+{%extends "navegacion.html"%}
+
+{% block content %}
 <h1>Bienvenidos a los Posts</h1>
 <p>Esta es una lista de posts.</p>
 <ul>
-    {% for post in posts %}
-        <li>{{ post.titulo}} - {{ post.contenido }}</li>
+    {% for post in posteos %}
+        <li>{{ post.titulo}} - {{ post.contenido }} - {{post.fecha_publicacion}}</li>
     {% empty %}
         <li>No hay posts disponibles.</li>
     {% endfor %}
 
 </ul>
 
+{% endblock %}
