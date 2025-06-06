@@ -5,11 +5,15 @@
 <p>Esta es una lista de posts.</p>
 <ul>
     {% for post in posteos %}
-        <li>{{ post.titulo}} - {{ post.contenido }} - {{post.fecha_publicacion}}</li>
+        <li>
+          <a href="{% url 'post_detail' post.id %}">
+            {{ post.titulo }}
+          </a>
+        </li>
     {% empty %}
         <li>No hay posts disponibles.</li>
     {% endfor %}
 
 </ul>
-
 {% endblock %}
+

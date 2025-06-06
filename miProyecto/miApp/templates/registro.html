@@ -1,0 +1,17 @@
+{% extends "navegacion.html" %}
+
+
+
+
+{% block content %}
+<h1>Registro de Usuario</h1>
+
+<form method="POST" >
+    
+    {% csrf_token %}
+    {{error}}
+    {{formularioRegister}}
+
+    <button type="submit">Registrar</button>
+</form>
+{% endblock %}

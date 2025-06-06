@@ -1,0 +1,15 @@
+{% extends "navegacion.html" %}
+
+
+
+{% block content %}
+<h1>Login</h1>
+<form method="POST" >
+    {% csrf_token %}
+    {{ error }}
+{{formularioLogin}}
+
+    <button>Iniciar Sesión</button>
+</form>
+
+{% endblock %}

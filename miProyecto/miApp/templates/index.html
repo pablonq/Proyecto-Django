@@ -1,9 +1,23 @@
 {%extends "navegacion.html"%}
 
 {% block content %}
-<h1>Bienvenido a Index</h1>
+<h1>Bienvenido al Home</h1>
 
 <p>Esta es la página de inicio de mi aplicación.</p>
+
+
+<ul>
+    {% for post in posteos %}
+        <li>
+          <a href="{% url 'post_detail' post.id %}">
+            {{ post.titulo }}
+          </a>
+        </li>
+    {% empty %}
+        <li>No hay posts disponibles.</li>
+    {% endfor %}
+
+</ul>
 {% endblock %}
 
 

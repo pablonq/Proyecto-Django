@@ -1,0 +1,12 @@
+{%extends "navegacion.html"%}
+
+{% block content %}
+<h1>Crear Nuevo Post</h1>
+
+<form method="POST" >
+    {% csrf_token %}
+    {{ error }}
+    {{ formularioPost }}
+
+    <button type="submit">Crear Post</button>
+{% endblock %}

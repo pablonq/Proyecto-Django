@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class usuario(models.Model):
@@ -7,6 +8,7 @@ class usuario(models.Model):
     telefono = models.CharField(max_length=15)
     perfil = models.TextField()
     email = models.EmailField()
+    
   
     fecha_registro = models.DateTimeField(auto_now_add=True)
 
@@ -16,7 +18,7 @@ class usuario(models.Model):
 class post(models.Model):
     titulo = models.CharField(max_length=200)
     contenido = models.TextField()
-    autor = models.ForeignKey(usuario, on_delete=models.CASCADE)
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

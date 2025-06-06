@@ -1,0 +1,23 @@
+{%extends "navegacion.html"%}
+
+{% block content %}
+<h1>Post: {{ post.titulo}} </h1>
+<p>{{ post.contenido }}</p>
+<p>Publicado el: {{ post.fecha_publicacion }}</p>
+<p>autor: {{post.autor.nombre}}</p>
+
+<button class="btn btn-primary">
+    <a href="{% url 'post_edit' post.id %}" style="color:blue;">Editar Post</a>
+</button>
+
+<form action="{% url 'post_delete' post.id %}" method="POST">
+  {% csrf_token %}
+  <button style="color:red;">
+      Eliminar Post
+  </button>
+</form>
+  
+
+{% endblock %}
+
+
