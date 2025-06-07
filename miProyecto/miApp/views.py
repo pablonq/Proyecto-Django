@@ -38,8 +38,8 @@ def post_create(request):
 
 
 def post_detail(request, post_id):
-    post_detail = post.objects.get(id=post_id)  # Obtiene el post por su ID
-    #post_detail = get_object_or_404(post, id=post_id)  # Obtiene el post por su ID
+    #post_detail = post.objects.get(id=post_id)  # Obtiene el post por su ID
+    post_detail = get_object_or_404(post, id=post_id)  # Obtiene el post por su ID
     
     return render(request, 'detallePost.html', {
         'post': post_detail,  # Pasa el post al contexto de la plantilla
@@ -59,6 +59,7 @@ def post_edit(request, post_id):
 def post_delete(request, post_id):
     post_detail = get_object_or_404(post, id=post_id)  # Obtiene el post por su ID
     if request.method == 'POST':
+        
         post_detail.delete()  # Elimina el post
         return redirect('posts_list')  # Redirige a la lista de posts
     

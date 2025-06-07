@@ -2,7 +2,7 @@
 
 {% block content %}
 <h1>Editar Post: {{ post.titulo }}</h1>
-<form method="POST">
+<form method="POST" >
 {% csrf_token %}
   {{formulario}}
   <button>
