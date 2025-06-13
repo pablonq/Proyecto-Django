@@ -6,6 +6,7 @@ from .formulario import FormularioPost # Importa el formulario para post
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm # Importa el formulario de autenticación
 from django.contrib.auth.models import User # Importa el modelo de usuario
 from django.contrib.auth import login, logout, authenticate # Importa el método de inicio de sesión
+from django.contrib.auth.decorators import login_required # Importa el decorador para requerir autenticación
 
 # Create your views here.
 def home(request):
@@ -23,6 +24,7 @@ def posts(request):
         'posteos': posts  # Pasa los posts al contexto de la plantilla
     })  
 
+@login_required  # Requiere que el usuario esté autenticado para acceder a esta vista
 def post_create(request):
     if request.method == "GET":
         return render(request, 'crearPost.html', {"formularioPost": FormularioPost})
@@ -36,6 +38,7 @@ def post_create(request):
         except:
             return render(request, 'crearPost.html', {"formularioPost": FormularioPost, "error": "Error al crear"})
 
+@login_required  # Requiere que el usuario esté autenticado para acceder a esta vista
 
 def post_detail(request, post_id):
     post_detail = post.objects.get(id=post_id)  # Obtiene el post por su ID

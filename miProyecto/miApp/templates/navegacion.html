@@ -1,19 +1,41 @@
-<nav>
-    <ul>
-        <li><a href="/">Home</a></li>
+{% load static tailwind_tags %}
+
+<head>
+    {% tailwind_css %}
+</head>
+<body class="bg-orange-200 min-h-screen flex flex-col">
+<nav class="bg-orange-400 py-4 shadow-md">
+    <ul class="flex justify-end space-x-8 px-8">
+        <li>
+            <a href="/" class="text-black font-semibold hover:underline transition">Home</a>
+        </li>
         {% if user.is_authenticated %}
-        <li><a href="/logout">Logout</a></li>
-        <li><a href="/posts/crear">Crear Post</a></li>
-        <li><a href="/posts">Mis Posts</a></li>
+        <li>
+            <a href="/logout" class="text-black font-semibold hover:underline transition">Logout</a>
+        </li>
+        <li>
+            <a href="/posts/crear" class="text-black font-semibold hover:underline transition">Crear Post</a>
+        </li>
+        <li>
+            <a href="/posts" class="text-black font-semibold hover:underline transition">Mis Posts</a>
+        </li>
         {% else %}
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Registrar</a></li>
+        <li>
+            <a href="/login" class="text-black font-semibold hover:underline transition">Login</a>
+        </li>
+        <li>
+            <a href="/register" class="text-black font-semibold hover:underline transition">Registrar</a>
+        </li>
         {% endif %}
-        
-        
     </ul>
 </nav>
 
-{% block content %}
+<main class="flex-1">
+    {% block content %}
+    {% endblock %}
+</main>
 
-{% endblock %}
+<footer class="bg-orange-500 text-black text-center py-2 mt-8">
+    <p>© 2023 Mi Proyecto</p>
+</footer>
+</body>

@@ -1,23 +1,24 @@
-{%extends "navegacion.html"%}
+{% extends "navegacion.html" %}
 
 {% block content %}
-<h1>Post: {{ post.titulo}} </h1>
-<p>{{ post.contenido }}</p>
-<p>Publicado el: {{ post.fecha_publicacion }}</p>
-<p>autor: {{post.autor.nombre}}</p>
+<div class="max-w-2xl mx-auto mt-10 bg-white rounded-lg shadow-lg p-8">
+    <h1 class="text-2xl font-bold text-orange-500 mb-4 text-center">Post: {{ post.titulo }}</h1>
+    <p class="text-black mb-2">{{ post.contenido }}</p>
+    <p class="text-gray-600 mb-2">Publicado el: {{ post.fecha_publicacion }}</p>
+    <p class="text-gray-600 mb-6">Autor: {{ post.autor.nombre }}</p>
 
-<button class="btn btn-primary">
-    <a href="{% url 'post_edit' post.id %}" style="color:blue;">Editar Post</a>
-</button>
-
-<form action="{% url 'post_delete' post.id %}" method="POST">
-  {% csrf_token %}
-  <button style="color:red;">
-      Eliminar Post
-  </button>
-</form>
-  
-
+    <div class="flex justify-between mb-4">
+        <a href="{% url 'post_edit' post.id %}" class="bg-orange-400 hover:bg-orange-500 text-black font-semibold py-2 px-4 rounded transition">
+            Editar Post
+        </a>
+        <form action="{% url 'post_delete' post.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded transition">
+                Eliminar Post
+            </button>
+        </form>
+    </div>
+</div>
 {% endblock %}
 
 

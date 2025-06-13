@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'miApp'
+    'miApp',
+    'tailwind',
+    'theme',  # Asegúrate de que el nombre de tu aplicación de Tailwind sea correcto
+    'django_browser_reload',  # Asegúrate de que esta aplicación esté instalada
 ]
 
 MIDDLEWARE = [
@@ -48,9 +51,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware", 
 ]
 
+TAILWIND_APP_NAME = 'theme'
+
 ROOT_URLCONF = 'miProyecto.urls'
+
+INTERNAL_IPS = [
+  "127.0.0.1"
+]
+
+NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"  # Cambia esta ruta si es necesario
 
 TEMPLATES = [
     {
@@ -116,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+LOGIN_URL = '/login'  # URL para la página de inicio de sesión
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field

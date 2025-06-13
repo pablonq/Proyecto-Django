@@ -1,15 +1,19 @@
 {% extends "navegacion.html" %}
 
-
-
 {% block content %}
-<h1>Login</h1>
-<form method="POST" >
-    {% csrf_token %}
-    {{ error }}
-{{formularioLogin}}
-
-    <button>Iniciar Sesión</button>
-</form>
-
+<div class="flex justify-center items-center min-h-[60vh]">
+    <form method="POST" class="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
+        <h1 class="text-2xl font-bold mb-6 text-orange-500 text-center">Login</h1>
+        {% csrf_token %}
+        {% if error %}
+            <div class="mb-4 text-red-600 text-sm">{{ error }}</div>
+        {% endif %}
+        <div class="space-y-4">
+            {{ formularioLogin.as_p }}
+        </div>
+        <button type="submit" class="mt-6 w-full bg-orange-400 hover:bg-orange-500 text-black font-semibold py-2 px-4 rounded transition">
+            Iniciar Sesión
+        </button>
+    </form>
+</div>
 {% endblock %}
