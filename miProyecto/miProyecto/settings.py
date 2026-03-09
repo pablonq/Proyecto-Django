@@ -62,7 +62,7 @@ INTERNAL_IPS = [
   "127.0.0.1"
 ]
 
-NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"  # Cambia esta ruta si es necesario
+NPM_BIN_PATH = r"/usr/local/bin/npm"  # Cambia esta ruta si es necesario
 
 TEMPLATES = [
     {

@@ -24,7 +24,7 @@ def posts(request):
         'posteos': posts  # Pasa los posts al contexto de la plantilla
     })  
 
-@login_required  # Requiere que el usuario esté autenticado para acceder a esta vista
+
 def post_create(request):
     if request.method == "GET":
         return render(request, 'crearPost.html', {"formularioPost": FormularioPost})
@@ -38,8 +38,8 @@ def post_create(request):
         except:
             return render(request, 'crearPost.html', {"formularioPost": FormularioPost, "error": "Error al crear"})
 
-@login_required  # Requiere que el usuario esté autenticado para acceder a esta vista
 
+@login_required  # Requiere que el usuario esté autenticado para acceder a esta vista
 def post_detail(request, post_id):
     #post_detail = post.objects.get(id=post_id)  # Obtiene el post por su ID
     post_detail = get_object_or_404(post, id=post_id)  # Obtiene el post por su ID
